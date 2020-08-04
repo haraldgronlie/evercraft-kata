@@ -20,4 +20,17 @@ object CharacterSpec : Spek({
             assertThat(subject.name).isEqualTo("Caleb")
         }
     }
+
+    describe("#alignment") {
+        it("has a default value") {
+            assertThat(subject.alignment).isEqualTo(Alignment.NEUTRAL)
+        }
+
+        it("can be changed") {
+            Alignment.values().forEach {
+                subject.alignment = it
+                assertThat(subject.alignment).isEqualTo(it)
+            }
+        }
+    }
 })
